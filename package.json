@@ -1,11 +1,11 @@
 {
-  "name": "parcel-project-template",
+  "name": "gram",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://goitacademy.github.io/parcel-project-template",
+  "homepage": "https://DenisTunyk.github.io/gram",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html"
+    "build": "parcel build src/*.html /gram/"
   },
   "repository": {
     "type": "git",
