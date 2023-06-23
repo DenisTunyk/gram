@@ -1,0 +1,34 @@
+.chat-list {
+    background: var(--color-background);
+    height: 100%;
+    padding: .5rem .125rem .5rem .4375rem;
+    overflow-y: auto
+}
+
+@supports(overflow-y: overlay) {
+    body.is-android .chat-list {
+        overflow-y: overlay;
+        overflow-x: hidden
+    }
+}
+
+.chat-list .scroll-container {
+    position: relative
+}
+
+.chat-list .ListItem.chat-item-clickable {
+    margin: 0
+}
+
+@media(max-width: 600px) {
+    .chat-list {
+        padding-left: 0;
+        padding-right: 0
+    }
+}
+
+.chat-list .no-results {
+    color: var(--color-text-meta);
+    margin-top: 2rem;
+    text-align: center
+}

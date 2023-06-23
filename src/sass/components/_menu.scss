@@ -1,0 +1,340 @@
+.Menu.fluid .bubble {
+    min-width: 13.5rem;
+    width: auto
+}
+
+.Menu .backdrop {
+    position: fixed;
+    left: -100vw;
+    right: -100vw;
+    top: -100vh;
+    bottom: -100vh;
+    z-index: var(--z-menu-backdrop)
+}
+
+.bubble {
+    overflow: hidden;
+    display: block;
+    list-style: none;
+    padding: .5rem 0;
+    margin: 0;
+    position: absolute;
+    background-color: var(--color-background);
+    box-shadow: 0 .25rem .5rem .125rem var(--color-default-shadow);
+    border-radius: var(--border-radius-default);
+    min-width: 13.5rem;
+    z-index: var(--z-menu-bubble);
+    overscroll-behavior: contain;
+    transform: scale(0.5);
+    transition: opacity .2s cubic-bezier(0.2, 0, 0.2, 1), transform .2s cubic-bezier(0.2, 0, 0.2, 1) !important;
+    --offset-y: calc(100% + 0.5rem);
+    --offset-x: 0
+}
+
+.Menu .bubble.open {
+    transform: scale(1)
+}
+
+.Menu .bubble.closing {
+    transition: opacity .2s ease-in, transform .2s ease-in !important
+}
+
+body.animation-level-0 .Menu .bubble {
+    transform: none !important;
+    transition: opacity .15s !important
+}
+
+.Menu .bubble.top {
+    top: var(--offset-y)
+}
+
+.Menu .bubble.bottom {
+    bottom: var(--offset-y)
+}
+
+.Menu .bubble.left {
+    left: var(--offset-x)
+}
+
+.Menu .bubble.right {
+    right: var(--offset-x)
+}
+
+.Menu .bubble.with-footer {
+    padding-bottom: 0
+}
+
+body.has-open-dialog .Menu:not(.CustomSendMenu):not(.web-app-more-menu) .bubble {
+    transition: none !important
+}
+
+.Menu .footer {
+    padding: .5rem 0;
+    background: var(--color-chat-hover);
+    color: var(--color-text-secondary);
+    font-size: .8125rem;
+    text-align: center
+}
+
+.Menu.compact .bubble {
+    background: var(--color-background-compact-menu);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    padding: .25rem 0
+}
+
+.Menu.compact .footer {
+    background: none
+}
+
+.Menu.compact.no-blur .bubble {
+    background: var(--color-background)
+}
+
+.Menu .menu-loading-row {
+    margin: .125rem 1rem;
+    width: calc(100% - 2rem)
+}
+
+// ***********************************************
+
+.MenuItem {
+    width: 100%;
+    background: none;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    display: flex;
+    align-items: center;
+    padding: .75rem 1rem;
+    position: relative;
+    overflow: hidden;
+    line-height: 1.5rem;
+    white-space: nowrap;
+    color: var(--color-text);
+    --ripple-color: rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    unicode-bidi: plaintext
+}
+
+@media(hover: hover) {
+
+    .MenuItem:hover,
+    .MenuItem:focus {
+        background-color: var(--color-chat-hover);
+        text-decoration: none;
+        color: inherit
+    }
+}
+
+@media(max-width: 600px) {
+
+    .MenuItem:focus,
+    .MenuItem:hover,
+    .MenuItem:active {
+        text-decoration: none;
+        color: inherit
+    }
+
+    .MenuItem:active {
+        background-color: var(--color-chat-hover)
+    }
+}
+
+.MenuItem i {
+    font-size: 1.5rem;
+    margin-right: 2rem;
+    color: var(--color-icon-secondary)
+}
+
+.MenuItem .menu-item-name {
+    margin-right: 2rem
+}
+
+.MenuItem .menu-item-name.capitalize {
+    text-transform: capitalize
+}
+
+.MenuItem.disabled {
+    opacity: .5 !important;
+    cursor: default !important
+}
+
+.MenuItem.destructive {
+    color: var(--color-error)
+}
+
+.MenuItem.destructive i {
+    color: inherit
+}
+
+.MenuItem:not(.has-ripple):not(.disabled):not(.compact):active {
+    background-color: var(--color-item-active);
+    transition: none !important
+}
+
+.MenuItem .Switcher,
+.MenuItem .menu-item-badge {
+    margin-left: auto
+}
+
+.MenuItem .menu-item-badge {
+    margin-right: .25rem;
+    font-size: .75rem;
+    color: var(--color-primary);
+    font-weight: normal;
+    line-height: normal
+}
+
+.MenuItem[dir=rtl] i {
+    margin-left: 2rem;
+    margin-right: 0
+}
+
+.MenuItem[dir=rtl] .menu-item-name {
+    margin-left: 2rem;
+    margin-right: 0
+}
+
+.MenuItem[dir=rtl]>.Switcher {
+    margin-left: 0;
+    margin-right: auto
+}
+
+.MenuItem.compact {
+    font-size: .875rem;
+    margin: .125rem .25rem;
+    padding: .25rem;
+    border-radius: .375rem;
+    width: auto;
+    font-weight: 500;
+    transform: scale(1);
+    transition: .15s ease-in-out transform
+}
+
+.MenuItem.compact i {
+    max-width: 1.25rem;
+    font-size: 1.25rem;
+    margin-left: .5rem;
+    margin-right: 1.25rem
+}
+
+.MenuItem.compact i::before {
+    max-width: 1.25rem
+}
+
+@media(hover: hover) {
+
+    .MenuItem.compact:hover,
+    .MenuItem.compact:focus,
+    .MenuItem.compact:active {
+        background: var(--color-chat-hover);
+        text-decoration: none
+    }
+
+    .MenuItem.compact:active {
+        transform: scale(0.98)
+    }
+}
+
+.MenuItem b {
+    font-weight: 600
+}
+
+.MenuItem.wrap {
+    display: block;
+    white-space: normal
+}
+
+.MenuItem.menu-custom-emoji-sets {
+    margin: 0 .25rem;
+    padding: .5rem .75rem;
+    font-weight: 400;
+    font-size: small;
+    line-height: 1.125rem
+}
+
+.CountryCodeInput .input-group {
+    cursor: pointer;
+    z-index: var(--z-country-code-input-group)
+}
+
+.CountryCodeInput .input-group .Spinner {
+    position: absolute;
+    top: 1rem;
+    right: .75rem;
+    opacity: .5;
+    --spinner-size: 1.5rem
+}
+
+.CountryCodeInput .input-group .css-icon-down {
+    position: absolute;
+    top: 1.125rem;
+    right: 1rem;
+    width: .75rem;
+    height: .75rem;
+    border: 2px solid var(--color-text-secondary);
+    border-top: 0;
+    border-left: 0;
+    transform: scaleY(1) rotate(45deg);
+    transition: color .2s ease, transform .2s ease, top .2s ease
+}
+
+.CountryCodeInput .input-group .css-icon-down.open {
+    border-color: var(--color-primary);
+    transform: scaleY(-1) rotate(45deg);
+    top: 1.5rem
+}
+
+.CountryCodeInput .bubble {
+    width: 100%;
+    max-height: 23.5rem;
+    overflow-y: auto;
+    transform-origin: top center !important;
+    transform: scale(0.95)
+}
+
+.CountryCodeInput .bubble.open {
+    transform: scaleY(1)
+}
+
+.CountryCodeInput .MenuItem button {
+    display: flex;
+    align-items: center
+}
+
+.CountryCodeInput .MenuItem.no-results button {
+    justify-content: center;
+    padding: .5rem 1rem
+}
+
+.CountryCodeInput .MenuItem.no-results button span {
+    font-size: .875rem
+}
+
+.CountryCodeInput .country-flag {
+    font-size: 2rem;
+    margin-right: 1rem
+}
+
+.CountryCodeInput .country-flag .emoji {
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    vertical-align: 4px;
+    margin: -0.5rem .125rem
+}
+
+.CountryCodeInput .country-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 1rem;
+    text-align: left
+}
+
+.CountryCodeInput .country-code {
+    margin-left: auto;
+    opacity: .5;
+    padding-right: .25rem
+}

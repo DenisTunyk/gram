@@ -1,0 +1,44 @@
+.animated-close-icon {
+    position: absolute;
+    transform: rotate(-45deg)
+}
+
+.animated-close-icon,
+.animated-close-icon::before,
+.animated-close-icon::after {
+    width: 1.125rem;
+    height: .125rem;
+    border-radius: .125rem;
+    background-color: var(--color-text-secondary);
+    transition: transform var(--slide-transition)
+}
+
+.animated-close-icon::before,
+.animated-close-icon::after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: ""
+}
+
+.animated-close-icon::before {
+    transform: rotate(90deg)
+}
+
+.animated-close-icon.no-transition,
+.animated-close-icon.no-transition::before,
+.animated-close-icon.no-transition::after {
+    transition: none
+}
+
+.animated-close-icon.state-back {
+    transform: rotate(180deg)
+}
+
+.animated-close-icon.state-back::before {
+    transform: rotate(45deg) scaleX(0.75) translate(0, -0.375rem)
+}
+
+.animated-close-icon.state-back::after {
+    transform: rotate(-45deg) scaleX(0.75) translate(0, 0.375rem)
+}
