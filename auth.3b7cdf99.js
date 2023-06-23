@@ -1,0 +1,2 @@
+!function(){"use strict";var e=document.querySelector(".js-inp-block"),t=document.querySelector(".js-input"),c=document.querySelector(".js-button");t.addEventListener("input",(function(e){console.log(e.currentTarget.value),5===e.currentTarget.value.length?c.classList.remove("disabled"):c.classList.add("disabled")})),document.addEventListener("click",(function(c){c.composedPath().includes(e)||(""!==t.value?e.classList.add("touched"):e.classList.remove("touched"))}))}();
+//# sourceMappingURL=auth.3b7cdf99.js.map
